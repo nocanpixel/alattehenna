@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 import { useUser } from '@auth0/nextjs-auth0';
-import Loading from "../components/loading";
+import Loading from "../components/loading/";
 
 export default function Login() {
     const { user, isLoading } = useUser();

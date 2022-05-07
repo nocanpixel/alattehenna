@@ -2,7 +2,7 @@ import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0';
 import Link from "next/link";
 import userServices from './services/user';
 import { useEffect, useState } from 'react';
-import Loading from '../components/loading';
+import Loading from '../components/loading/';
 
 import { useRouter } from 'next/router';
 
