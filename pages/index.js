@@ -4,18 +4,15 @@ import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 
-import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0';
-import { useEffect } from "react";
+import { useUser } from '@auth0/nextjs-auth0';
 import { useRouter } from 'next/router';
 import Loading from "../components/Loading";
 
 export default function Login() {
-    const { user, error, isLoading } = useUser();
-    const router = useRouter();
+    const { user, isLoading } = useUser();
 
     return (
         <div>
-            
             {isLoading&&(<Loading/>)}
             {!isLoading && !user && (
                 <div className="container flex justify-center items-center">
