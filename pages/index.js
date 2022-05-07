@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-
+// Auth
 import { useUser } from '@auth0/nextjs-auth0';
 import Loading from "../components/loading";
 
