@@ -14,6 +14,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
+    "@mobiscroll/react": "https://npm.mobiscroll.com/@mobiscroll/react-trial/-/react-trial-5.16.1.tgz",
     "@nextui-org/react": "^1.0.0-beta.6",
     "axios": "^0.27.2",
     "next": "12.1.6",

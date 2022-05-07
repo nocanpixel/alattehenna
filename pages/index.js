@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faGear } from '@fortawesome/free-solid-svg-icons'
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 // Auth
 import { useUser } from '@auth0/nextjs-auth0';
 import Loading from "../components/loading";
@@ -13,7 +13,8 @@ import { Button, useTheme, Text, Tooltip, Popover } from '@nextui-org/react';
 export default function Login() {
     const { theme } = useTheme();
     const { user, isLoading } = useUser();
-
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    
     return (
         <div>
             {isLoading && (<Loading />)}
@@ -80,16 +81,13 @@ export default function Login() {
                         </Text>
                     </div>
                     <div>
-                        {console.log(user)}
-                        <Link href="../api/auth/logout">
-                            <Button color={'gradient'}>
-                                LOGOUT
-                            </Button>
-                        </Link>
-                    </div>
-                    <div className={`bg-white absolute bottom-0 left-0 md:top-0 md:left-0 md:w-16 md:h-screen w-full h-20 flex md:justify-center justify-end item-center border-t-2 md:border-r-2 shadow-md`}>
 
-                        <div className="absolute bottom-6 text-2xl right-6 md:right-auto rounded-full flex items-center shadow-lg">
+                    </div>
+                    <div className={`bg-white absolute bottom-0 left-0 md:top-0 md:left-0 md:w-16 md:h-screen w-full h-16 flex md:justify-center justify-end item-center  shadow-lg`}>
+                        <div className={`${MyStyles.logo__title} md:hidden text-3xl absolute left-10 bottom-3`}>
+                            alattehenna
+                        </div>
+                        <div className="absolute bottom-3 text-2xl right-6 md:right-auto rounded-full flex items-center">
                             <div className="hidden">
                                 <Image
                                     className="rounded-full"
@@ -103,7 +101,7 @@ export default function Login() {
 
                                 <Popover.Trigger>
                                     <button className={`${MyStyles.settings} rounded-full text-md flex item-center text-gray-900 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300`}>
-                                        <FontAwesomeIcon icon={faGear} />
+                                        <FontAwesomeIcon icon={faEllipsisVertical} className="shadow-lg md:rotate-90 py-2 px-4 rounded-full" />
                                     </button>
                                 </Popover.Trigger>
 
@@ -123,7 +121,7 @@ export default function Login() {
                                     <div className="my-5 text-center text-gray-300">
                                         <div className="inline-block text-left">
                                             <div>
-                                                <span>{user.name}</span>
+                                                <span>{emailRegex.test(user.name)?'':user.name}</span>
                                             </div>
                                             <div>
                                                 <span className="text-md">{user.email}</span>
