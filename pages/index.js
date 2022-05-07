@@ -67,6 +67,7 @@ export default function Login() {
                         Welcome home {user.name}
                     </div>
                     <div className='mt-2'>
+                        {console.log(user)}
                         <Link href="../api/auth/logout">
                             <button type="button" className="bg-sky-400 text-white rounded-full font-medium py-2.5 w-full hover:bg-sky-500 hover:shadow-lg">
                                 LOGOUT
