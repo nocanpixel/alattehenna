@@ -22,7 +22,7 @@ export default function Navbar() {
                     alattehenna
                 </div>
                 <div className="absolute text-2xl bottom-2 right-6 md:right-auto rounded-full flex items-center">
-                    <Popover placement="">
+                    <Popover placement="top-left">
                         {/* Button menu trigger */}
                         <Popover.Trigger>
                             <Button

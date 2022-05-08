@@ -26,6 +26,15 @@ export default function Home() {
                 >
                     Using tokens
                 </Text>
+
+                <Popover>
+                    <Popover.Trigger>
+                        <Button auto flat>Open Popover</Button>
+                    </Popover.Trigger>
+                    <Popover.Content>
+                        <Text css={{ p: "$10" }}>This is the content of the popover.</Text>
+                    </Popover.Content>
+                </Popover>
             </div>
         </div>
     )
