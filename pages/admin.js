@@ -2,6 +2,7 @@ import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0';
 import Loading from '../components/loading';
 
 import { useRouter } from 'next/router';
+import Navbar from '../components/navbar';
 
 function Admin() {
     const { user, error, isLoading } = useUser();
@@ -15,6 +16,7 @@ function Admin() {
         return (
             <div>
                 Soy {USER_ROLE}
+                <Navbar user={user} isLoading={isLoading} />
             </div>
         )
     }
