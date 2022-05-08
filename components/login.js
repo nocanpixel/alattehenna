@@ -6,10 +6,10 @@ import Image from "next/image";
 
 export default function Login() {
     return (
-        <div className="container flex justify-center items-center">
-            <div className="md:w-9/12 bg-white rounded-md p-4 flex justify-center items-center">
+        <div className="container md:bg-white flex justify-center items-center">
+            <div className="w-full rounded-md p-4 flex justify-center items-center">
                 <div className="container flex justify-center items-center">
-                    <div className="text-center py-2 my-2 md:my-10 md:w-6/12">
+                    <div className="text-center py-2 my-2 md:my-10 md:w-11/12 lg:w-6/12">
                         <h3 className="font-medium leading-tight text-2xl md:text-3xl text-gray-700">
                             {'Looking for henna?'}
                         </h3>

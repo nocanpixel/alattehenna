@@ -11,7 +11,7 @@ export default function App() {
     const { user, isLoading } = useUser();
 
     return (
-        <div className="md:w-1/2">
+        <div className="w-12/12 md:w-1/2">
             {isLoading && (<Loading />)}
             {!isLoading && !user && (
                 <Login/>
