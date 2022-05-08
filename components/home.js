@@ -9,6 +9,7 @@ import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0';
 //STYLES
 import { Button, useTheme, Text, Tooltip, Popover } from '@nextui-org/react';
 import MyStyles from "../styles/MyStyles.module.css";
+import Navbar from './navbar';
 
 export default function Home() {
     const { user, isLoading } = useUser();
@@ -26,15 +27,7 @@ export default function Home() {
                 >
                     Using tokens
                 </Text>
-
-                <Popover>
-                    <Popover.Trigger>
-                        <Button auto flat>Open Popover</Button>
-                    </Popover.Trigger>
-                    <Popover.Content>
-                        <Text css={{ p: "$10" }}>This is the content of the popover.</Text>
-                    </Popover.Content>
-                </Popover>
+                <Navbar user={user} isLoading={isLoading} />
             </div>
         </div>
     )

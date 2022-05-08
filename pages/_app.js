@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
       <NextUIProvider>
         <div className='h-screen md:bg-sky-100 flex justify-center items-center'>
           <Component {...pageProps} />
-          <Navbar/>
+          
         </div>
       </NextUIProvider>
     </UserProvider>

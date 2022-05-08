@@ -11,8 +11,7 @@ import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import Image from "next/image";
 import Link from 'next/link';
 
-export default function Navbar() {
-    const { user, isLoading } = useUser();
+export default function Navbar({ user, isLoading }) {
     const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const USER_ROLE = user[process.env.NEXT_PUBLIC_NAMESPACE_USER_APP_DATA].roles[0];
     return (
