@@ -104,13 +104,13 @@ export default function Home() {
                                 <Grid xs={12}>
                                     <div onClick={() => { postBookings() }} className={`${MyStyles.cards__options} relative bg-black w-full cursor-pointer shadow-md flex justify-start items-center rounded-xl`}>
                                         <div className='grid grid-cols-2 w-full gap-6 my-4 mx-4'>
-                                            <div className='mt-10'>
+                                            <div className='mt-14'>
                                                 <div>
-                                                    <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-600 rounded-full">GROUP</span>
-                                                    <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-600 rounded-full">HOURLY</span>
-                                                    <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-600 rounded-full">MIX HENNA</span>
-                                                    <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-600 rounded-full">BRIDAL PACKAGE 1</span>
-                                                    <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-600 rounded-full">CUSTOM PLACES</span>
+                                                    <span className="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-600 rounded-full">GROUP</span>
+                                                    <span className="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-600 rounded-full">HOURLY</span>
+                                                    <span className="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-600 rounded-full">MIX HENNA</span>
+                                                    <span className="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-600 rounded-full">BRIDAL PACKAGE 1</span>
+                                                    <span className="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-600 rounded-full">CUSTOM PLACES</span>
                                                 </div>
                                                 <div className='mt-3'>
                                                     <div>
@@ -121,7 +121,7 @@ export default function Home() {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className='mt-10'>
+                                            <div className='mt-14'>
                                                 <div>
                                                     <Text css={{ color: 'white' }}>FATIMA SAIDI MUHAMMAD ALI</Text>
                                                 </div>
@@ -143,7 +143,7 @@ export default function Home() {
                                                 <Text size={30} css={{ color: 'white' }} h1>Booking details</Text>
                                             </div>
                                             <div className='absolute top-2 right-4'>
-                                                <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">CANCEL</span>
+                                                <span className="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">CANCEL</span>
                                             </div>
                                             <div className='absolute bottom-3 right-4'>
                                                 <Text size={23} css={{ color: 'white' }}>£ {currencyFormatter.format('80')}</Text>
