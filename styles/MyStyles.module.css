@@ -10,9 +10,22 @@
 }
 
 .instagram__logo{
-    background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    background:linear-gradient(45deg, #657cee, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
 }
 
 .settings{
     background-color: rgb(17, 17, 17);
+}
+
+.card__book{
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #88a5ea, #76afef, #65b8f1, #4ac4f2, #37ceed, #3ad8e4, #51e0d7);
+    min-height: 300px;
+}
+
+.card__location {
+    height: auto;
+}
+
+.cards__options {
+    padding: 2%;
 }

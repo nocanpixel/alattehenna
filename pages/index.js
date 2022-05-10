@@ -11,16 +11,20 @@ export default function App() {
     const { user, isLoading } = useUser();
 
     return (
-        <div className="w-12/12 md:w-1/2">
+        <div>
             {isLoading && (<Loading />)}
             {!isLoading && !user && (
-                <Login/>
+                <div className="h-screen flex justify-center items-center">
+                    <div className='w-12/12 md:w-1/2'>
+                        <Login />
+                    </div>
+                </div>
             )}
             {!isLoading && user && (
                 <>
-                <Home/>
+                    <Home />
                 </>
-                
+
             )
             }
         </div >

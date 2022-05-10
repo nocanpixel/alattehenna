@@ -5,15 +5,13 @@ config.autoAddCss = false;
 
 import { UserProvider } from '@auth0/nextjs-auth0';
 import { NextUIProvider } from '@nextui-org/react';
-import Navbar from '../components/navbar';
 
 function MyApp({ Component, pageProps }) {
   return (
     <UserProvider>
       <NextUIProvider>
-        <div className='h-screen md:bg-sky-100 flex justify-center items-center'>
+        <div>
           <Component {...pageProps} />
-          
         </div>
       </NextUIProvider>
     </UserProvider>
