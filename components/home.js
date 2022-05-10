@@ -82,6 +82,7 @@ export default function Home() {
                                     src={'/images/myqrcode2.png'}
                                     width={100}
                                     height={100}
+                                    alt={'My QR Code'}
                                     layout={'responsive'}
                                 />
                             </div>
