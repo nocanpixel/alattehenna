@@ -102,7 +102,7 @@ export default function Home() {
                         </div>
                         <div className='flex justify-center md:justify-end items-center'>
                             <div className="w-72 md:w-56 md:-mt-2 md:-mr-4">
-                                <a href="https://me-qr.com/fzPzlQ" target="_blank" rel='Prices'>
+                                <a href="https://me-qr.com/fzPzlQ" target="_blank" rel='noopener noreferrer'>
                                     <Image
                                         src={'/images/myqrcode2.png'}
                                         width={100}
