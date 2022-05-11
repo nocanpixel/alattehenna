@@ -28,7 +28,7 @@ export default function Login() {
                             </div>
                         </div>
                         <div className="my-4">
-                            <span className="text-gray-400 font-light">Alattehenna an app for <span className="text-sky-600 font-small">booking</span> henna and <span className="text-emerald-600 font-small">managing</span> clients.</span>
+                            <span className="text-gray-400 font-light">Alattehenna an app for <span className="text-sky-400 font-small">booking</span> henna and <span className="text-sky-400 font-small">managing</span> clients.</span>
                         </div>
                         <div>
                             <Link href="../api/auth/login">

@@ -29,3 +29,7 @@
 .cards__options {
     padding: 2%;
 }
+
+.container__form{
+    min-height: 480px;
+}

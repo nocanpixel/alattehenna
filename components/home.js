@@ -2,12 +2,11 @@
 import { useUser } from '@auth0/nextjs-auth0';
 
 //STYLES
-import { Button, useTheme, Text, Tooltip, Grid, Avatar } from '@nextui-org/react';
+import { Text, Tooltip, Grid, Avatar } from '@nextui-org/react';
 import Navbar from './navbar';
-import { createBooking, getBookings } from '../services/booking';
+import { createBooking, getBookings, getBookingByUser } from '../services/booking';
 import { useEffect, useState } from 'react';
 import MyStyles from "../styles/MyStyles.module.css";
-import myqrcode from "../public/images/myqrcode.svg";
 
 //MATERIAL UI
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
@@ -15,26 +14,31 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import TextField from '@mui/material/TextField';
 import Image from 'next/image';
-import LoadingPage from './loading';
+import Loading from './loading';
+
+
+import { format } from 'date-fns';
+import Link from 'next/link';
 
 export default function Home() {
     const { user, isLoading } = useUser();
-    const [value, setValue] = useState(new Date());
-    const randomColor = () => {
-        const myColors = ["#fd1d1d", "#405de6", "#8B0000", "#7B68EE", "#8B008B", "#9370DB", "#DA70D6", "#C71585", "#FFA500", "#000000", "#ffab40", "#7c4dff", "#008B8B"];
-        const randomColor = Math.floor(Math.random() * myColors.length);
-        return myColors[randomColor];
-    };
+    const [fetchingData, setFetchingData] = useState(false);
+    const [bookingsByUser, setBookingsByUser] = useState([])
 
     const currencyFormatter = new Intl.NumberFormat("uk-UK", {
         style: "currency",
         currency: "GBP",
     });
 
-    const postBookings = async () => {
+    useEffect(() => {
+        setFetchingData(true);
+        fetchBookingByUser();
+    }, [])
+
+    const fetchCreateBooking = async () => {
         try {
             const res = await createBooking({
-                name: 'Fatima Saidi',
+                name: { myName: 'Fatima Ali Saidi' }
             });
             if (res) {
                 console.log(res);
@@ -44,10 +48,22 @@ export default function Home() {
         }
     }
 
+    const fetchBookingByUser = async () => {
+        try {
+            const res = await getBookingByUser();
+            if (res) {
+                setBookingsByUser(res);
+                setFetchingData(false);
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
     return (
         <div className='w-11/12 md:w-9/12 lg:w-6/12 m-auto'>
-            <div className='h-auto mb-28'>
-                <div className={`${MyStyles.card__location} p-4 w-full hover:opacity-75 transition ease-in-out delay-50 duration-300`}>
+            <div className='h-auto mb-28 my-4'>
+                <div className={`${MyStyles.card__location} pb-4 w-full hover:opacity-75 transition ease-in-out delay-50 duration-300`}>
                     <div className='w-full h-full flex justify-start items-center'>
                         {/* BODY */}
                         <div className="cursor-pointer">
@@ -55,7 +71,8 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                <div className={`${MyStyles.card__book} cursor-pointer w-full rounded-xl shadow-md p-10 hover:opacity-90 transition ease-in-out delay-50 duration-300`}>
+                {/* BOOKING */}
+                <div className={`${MyStyles.card__book} w-full rounded-xl shadow-md p-10 hover:opacity-90 transition ease-in-out delay-50 duration-300`}>
                     <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                         <div>
                             {/* HEAD */}
@@ -68,23 +85,33 @@ export default function Home() {
                                     }}
                                     weight="bold"
                                 >
-                                    BOOK
+                                    HENNA
                                 </Text>
                             </div>
                             {/* BODY */}
                             <div>
                                 <Text css={{ marginLeft: '$3', marginTop: '$8', color: 'white' }} size={17} h4>{'Almost before we knew it, we had left the ground. Lorem ipsum honor'}</Text>
                             </div>
+                            <div>
+                                <Link href={'createbooking'}>
+                                    <a>
+                                        <button className='ml-1 mt-4 bg-white py-2 px-7 text-gray-900 opacity-40 rounded-full font-bold shadow-lg transition ease-in-out delay-50 duration-300 hover:opacity-80'>BOOK HERE!</button>
+                                    </a>
+                                </Link>
+                            </div>
                         </div>
                         <div className='flex justify-center md:justify-end items-center'>
                             <div className="w-72 md:w-56 md:-mt-2 md:-mr-4">
-                                <Image
-                                    src={'/images/myqrcode2.png'}
-                                    width={100}
-                                    height={100}
-                                    alt={'My QR Code'}
-                                    layout={'responsive'}
-                                />
+                                <a href="https://me-qr.com/fzPzlQ" target="_blank" rel='Prices'>
+                                    <Image
+                                        src={'/images/myqrcode2.png'}
+                                        width={100}
+                                        height={100}
+                                        priority
+                                        alt={'My QR Code'}
+                                        layout={'responsive'}
+                                    />
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -93,69 +120,78 @@ export default function Home() {
                     <div className='w-full h-full flex justify-end items-center'>
                         {/* BODY */}
                         <div className="cursor-pointer hover:opacity-75">
-                            <Text css={{ color: 'black' }} weight={'bold'} h2>Start booking with us</Text>
+                            <Text css={{ color: 'black' }} weight={'bold'} h2>{'My booking list'}</Text>
                         </div>
                     </div>
                 </div>
-                <div className={`${MyStyles.card__location} my-5 w-full`}>
-                    <div className='w-full h-full'>
-                        {/* BODY */}
-                        <div>
-                            <Grid.Container gap={1}>
-                                <Grid xs={12}>
-                                    <div onClick={() => { postBookings() }} className={`${MyStyles.cards__options} relative bg-black w-full cursor-pointer shadow-md flex justify-start items-center rounded-xl`}>
-                                        <div className='grid grid-cols-2 w-full gap-6 my-4 mx-4'>
-                                            <div className='mt-14'>
-                                                <div>
-                                                    <span className="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-600 rounded-full">GROUP</span>
-                                                    <span className="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-600 rounded-full">HOURLY</span>
-                                                    <span className="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-600 rounded-full">MIX HENNA</span>
-                                                    <span className="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-600 rounded-full">BRIDAL PACKAGE 1</span>
-                                                    <span className="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-600 rounded-full">CUSTOM PLACES</span>
-                                                </div>
-                                                <div className='mt-3'>
-                                                    <div>
-                                                        <Text weight={'bold'} size={40} css={{ textGradient: "45deg, $blue600 -20%, $pink600 50%", color: 'white' }}>{'19:10PM'}</Text>
-                                                    </div>
-                                                    <div>
-                                                        <Text size={20} css={{color: 'white' }}>{'Tuesday 10th May 2022'}</Text>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className='mt-14'>
-                                                <div>
-                                                    <Text css={{ color: 'white' }}>FATIMA SAIDI MUHAMMAD ALI</Text>
-                                                </div>
-                                                <div>
-                                                    <Text css={{ color: 'white' }}>FLAT 05</Text>
-                                                </div>
-                                                <div>
-                                                    <Text css={{ color: 'white' }}>82 CAMBRIDGE ROAD</Text>
-                                                </div>
-                                                <div>
-                                                    <Text css={{ color: 'white' }}>LONDON</Text>
-                                                </div>
-                                                <div>
-                                                    <Text css={{ color: 'white' }}>NW6 5FN</Text>
-                                                </div>
-                                            </div>
+                {!fetchingData ? (
+                    <>
+                        {bookingsByUser.map((ele, index) => (
+                            <div key={index} className={`${MyStyles.card__location} my-5 w-full`}>
+                                <div className='w-full h-full'>
+                                    {/* BODY */}
+                                    <div>
+                                        <Grid.Container gap={1}>
+                                            <Grid xs={12}>
+                                                <div onClick={() => { fetchBookingByUser() }} className={`${MyStyles.cards__options} relative bg-black w-full cursor-pointer shadow-md flex justify-start items-center rounded-xl transition delay-100 duration-300 hover:scale-105`}>
+                                                    <div className='grid grid-cols-1 md:grid-cols-2 w-full gap-1 md:gap-6 my-4 mx-4'>
+                                                        <div className='mt-20'>
+                                                            <div>
+                                                                {JSON.parse(ele.services).map((item, index) => (
+                                                                    <span key={index} className="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-600 rounded-full">{item}</span>
+                                                                ))}
+                                                            </div>
+                                                            <div className='mt-5'>
+                                                                <div>
+                                                                    <Text weight={'bold'} size={55} css={{ textGradient: "45deg, $blue600 -20%, $pink600 50%", color: 'white' }}>{format(new Date(ele.booking_date), "H:mm a")}</Text>
+                                                                </div>
+                                                                <div>
+                                                                    <Text className='pl-1' size={22} css={{ color: 'white' }}>{format(new Date(ele.booking_date), "cccc, PPP")}</Text>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className='m-2 md:mt-20'>
+                                                            <div>
+                                                                <Text size={20} css={{ color: 'white' }}>{ele.name.toUpperCase()}</Text>
+                                                            </div>
+                                                            <div>
+                                                                <Text size={25} weight={'bold'} css={{ textGradient: "45deg, $blue200 -20%, $pink700 50%" }}>{ele.phone}</Text>
+                                                            </div>
+                                                            {JSON.parse(ele.adress).map((item, index) => (
+                                                                <div key={index}>
+                                                                    <Text size={19} css={{ color: 'white' }}>{item}</Text>
+                                                                </div>
+                                                            ))}
+                                                        </div>
 
-                                            <div className='absolute top-3'>
-                                                <Text size={30} css={{ color: 'white' }} h1>Booking details</Text>
-                                            </div>
-                                            <div className='absolute top-2 right-4'>
-                                                <span className="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">CANCEL</span>
-                                            </div>
-                                            <div className='absolute bottom-3 right-4'>
-                                                <Text size={23} css={{ color: 'white' }}>£ {currencyFormatter.format('80')}</Text>
-                                            </div>
-                                        </div>
+                                                        <div className='absolute top-5'>
+                                                            <Text className='text-5xl' css={{ color: 'white' }} h1>Booking details</Text>
+                                                        </div>
+                                                        <div className='absolute top-2 right-4'>
+                                                            <span className={`inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-black ${ele.status === 'approved' ? 'bg-green-600' : ele.status === 'pending' ? 'bg-amber-500' : 'bg-red-600'} rounded-full`}>{ele.status.toUpperCase()}</span>
+                                                        </div>
+                                                        <div className='absolute bottom-6 right-5'>
+                                                            <Text className='text-5xl font-bold md:text-3xl' css={{ color: 'white' }}>£ {currencyFormatter.format(ele.total)}</Text>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Grid>
+                                        </Grid.Container>
                                     </div>
-                                </Grid>
-                            </Grid.Container>
-                        </div>
-                    </div>
-                </div>
+                                </div>
+                            </div>
+                        ))}
+                    </>
+                ) : (
+                    <>
+                        LOADING
+                    </>
+                )}
+                {bookingsByUser.length === 0 && (
+                    <>
+                        THERES NO DATA YET
+                    </>
+                )}
             </div>
             <div>
                 <Navbar user={user} isLoading={isLoading} />

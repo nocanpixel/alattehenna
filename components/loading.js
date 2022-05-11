@@ -1,6 +1,4 @@
-import { Loading } from "@nextui-org/react";
-
-export default function LoadingPage() {
+export default function Loading() {
     return (
         <div className="absolute z-50 top-0 left-0 right-0 bottom-0 m-auto h-screen bg-white md:bg-white">
             <svg role="status" className="inline w-12 h-12 text-gray-200 animate-spin dark:text-sky-100 fill-blue-600 absolute top-0 bottom-0 right-0 left-0 m-auto" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">

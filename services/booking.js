@@ -7,9 +7,14 @@ const getBookings = async () =>{
     return data;
 }
 
+const getBookingByUser = async () => {
+    const { data } = await axios.get(`${baseUrl}/booking/getBookingByUser`);
+    return data;
+}
+
 const createBooking = async (bookingData) =>{
     const {data} = await axios.post(`${baseUrl}/booking/createBooking`,bookingData);
     return data;
 }
 
-export { getBookings, createBooking }
+export { getBookings, createBooking, getBookingByUser }

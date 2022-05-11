@@ -1,5 +1,5 @@
 import { withApiAuthRequired, getSession } from "@auth0/nextjs-auth0";
-import { bookingList } from '../../../config/db_setup';
+import { booking } from '../../../config/db_setup';
 require('dotenv');
 
 export default withApiAuthRequired(async function createBooking(req, res) {
@@ -10,9 +10,9 @@ export default withApiAuthRequired(async function createBooking(req, res) {
         const email = user.email;
         console.log(name,'LOL');
         try {
-            const createBooking = await bookingList.create({
+            const createBooking = await booking.create({
                 user_id: userId,
-                name: name,
+                name: `${JSON.stringify(name)}`,
                 email: email,
             });
             if (createBooking) {

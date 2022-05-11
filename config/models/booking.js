@@ -1,5 +1,5 @@
 module.exports = (sequelie, type) =>{
-    return sequelie.define('booking_list',{
+    return sequelie.define('booking',{
         id: {
             type: type.INTEGER,
             primaryKey: true,
@@ -8,5 +8,11 @@ module.exports = (sequelie, type) =>{
         name: type.STRING,
         email: type.STRING,
         user_id: type.STRING,
+        services: type.TEXT('long'),
+        booking_date: type.DATE,
+        adress: type.TEXT('long'),
+        phone: type.STRING,
+        total: type.STRING,
+        status: type.STRING,
     })
 }

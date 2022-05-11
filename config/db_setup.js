@@ -1,5 +1,5 @@
 const { Sequelize } = require('sequelize');
- const bookingListModel = require('./models/booking_list');
+ const bookingModel = require('./models/booking');
 require('dotenv').config();
 
 const sequelize = new Sequelize(
@@ -12,7 +12,7 @@ const sequelize = new Sequelize(
     }
 );
 
-const bookingList = bookingListModel(sequelize, Sequelize);
+const booking = bookingModel(sequelize, Sequelize);
 
 sequelize.sync({ force:false }).then(()=>{
     console.log("Tablas sincronizadas");
@@ -20,5 +20,5 @@ sequelize.sync({ force:false }).then(()=>{
 
 
 module.exports = {
-    bookingList
+    booking
 }

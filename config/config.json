@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root" ,
+    "password": "",
+    "database": "alattehenna_db",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "cg75oih6ith68lkl" ,
+    "password": "o4s8m81hm09xh2ud",
+    "database": "mpj4z25diittifts",
+    "host": "z3iruaadbwo0iyfp.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  }
+}
