@@ -51,15 +51,6 @@ export default function BookingInfo({ prevStep, nextStep, step }) {
         }
     }
 
-
-    const getInputEvent = (e, field) => {
-        /*         e == false && field.name === 'amountHours' && unregister('amountHours')
-                e == false && field.name === 'handsPackage' && unregister('handsPackage') */
-    }
-
-
-
-    /*     { isCheckedEvent && console.log(isCheckedEvent) } */
     return (
         <div className="flex justify-center items-center mt-4 relative">
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -73,25 +64,13 @@ export default function BookingInfo({ prevStep, nextStep, step }) {
                         </div>
                         {myPackages.map((item,index) => (
                             <div onClick={()=> { setVisible(true); setModalData(item)} } key={index} className="my-8 grid grid-cols-1 gap-2 cursor-pointer hover:scale-105 transition ease-in-out delay-50 duration-300">
-                                <div className="bg-white rounded-md shadow-md grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
-                                    <div className="ml-4 my-5">
+                                <div className="bg-white hover:shadow-md grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
+                                    <div className="ml-4 my-7">
                                         <div>
                                             <Text h1>{item.name}</Text>
                                         </div>
                                         <div>
                                             <Text size={20}>{item.desc}</Text>
-                                        </div>
-                                    </div>
-                                    <div className="justify-end hidden md:flex md:visible">
-                                        <div className=" w-72">
-                                            <Image
-                                                width={190}
-                                                height={190}
-                                                src={item.img}
-                                                alt={'Henna style'}
-                                                layout="responsive"
-                                                objectFit="cover"
-                                            />
                                         </div>
                                     </div>
                                 </div>

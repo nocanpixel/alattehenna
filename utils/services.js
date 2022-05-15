@@ -248,5 +248,9 @@ export const myPackages = [
         name:'Body package',
         desc:'Prices also vary depending on the intricacy of the design',
         img:'/images/secondbg.png'
+    },
+    {
+        name: 'Events',
+        desc:' If applicable'
     }
 ]
