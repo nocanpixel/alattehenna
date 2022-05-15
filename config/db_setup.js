@@ -1,5 +1,5 @@
 const { Sequelize } = require('sequelize');
- const bookingModel = require('./models/booking');
+const bookingModel = require('./models/booking');
 require('dotenv').config();
 
 const sequelize = new Sequelize(
@@ -8,7 +8,8 @@ const sequelize = new Sequelize(
     process.env.PASSWORD,
     {
         host: process.env.HOST,
-        dialect: 'mysql'
+        dialect: 'mysql',
+        dialectModule: require('mysql2')
     }
 );
 
