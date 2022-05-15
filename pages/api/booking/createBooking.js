@@ -13,7 +13,7 @@ export default withApiAuthRequired(async function createBooking(req, res) {
             const createBooking = await booking.create({
                 user_id: userId,
                 name: `${JSON.stringify(name)}`,
-                email: email,
+                email: email
             });
             if (createBooking) {
                 res.json({

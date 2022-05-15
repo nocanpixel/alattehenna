@@ -3,13 +3,14 @@ import BookingInfo from "./BookingInfo";
 import Confirm from "./Confirm";
 import Presentation from "./Presentation";
 import UserDetails from "./UserDetails";
-import { useForm } from "react-hook-form";
 
 export default function BookingForm({ step, setStep }) {
 
-    const { register, watch, unregister, handleSubmit, formState: { errors } } = useForm();
-
     const [values , setValues] = useState();
+
+    const [inputLocation, setInputLocation] = useState('London (Kilburn)');
+
+    const [isCheckedDelivery, setIsCheckedDelivery] = useState(false);
 
     const nextStep = () => {
         setStep(step + 1);
@@ -26,7 +27,7 @@ export default function BookingForm({ step, setStep }) {
             )
         case 2:
             return (
-                <UserDetails unregister={unregister} values={values} setValues={setValues} nextStep={nextStep} register={register} watch={watch} errors={errors} prevStep={prevStep} step={step} />
+                <UserDetails  isCheckedDelivery={isCheckedDelivery} setIsCheckedDelivery={setIsCheckedDelivery} inputLocation={inputLocation} setInputLocation={setInputLocation} values={values} setValues={setValues} nextStep={nextStep} prevStep={prevStep} step={step} />
             )
         case 3:
             return (
@@ -34,7 +35,7 @@ export default function BookingForm({ step, setStep }) {
             )
         case 4:
             return (
-                <Confirm prevStep={prevStep} handleSubmit={handleSubmit} step={step} />
+                <Confirm prevStep={prevStep} step={step} />
             )
         default:
             setStep(1);

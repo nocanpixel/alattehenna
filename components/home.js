@@ -165,13 +165,13 @@ export default function Home() {
                                                         </div>
 
                                                         <div className='absolute top-5'>
-                                                            <Text className='text-5xl' css={{ color: 'white' }} h1>Booking details</Text>
+                                                            <Text className='text-5xl' css={{ color: 'white' }} h1>Details</Text>
                                                         </div>
                                                         <div className='absolute top-2 right-4'>
-                                                            <span className={`inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-black ${ele.status === 'approved' ? 'bg-green-600' : ele.status === 'pending' ? 'bg-amber-500' : 'bg-red-600'} rounded-full`}>{ele.status.toUpperCase()}</span>
+                                                            <span className={`inline-flex items-center justify-center px-2 py-1 mr-1 mt-3 text-xs font-bold leading-none text-black ${ele.status === 'approved' ? 'bg-green-600' : ele.status === 'pending' ? 'bg-amber-500' : 'bg-red-600'} rounded-full`}>{ele.status.toUpperCase()}</span>
                                                         </div>
                                                         <div className='absolute bottom-6 right-5'>
-                                                            <Text className='text-5xl font-bold md:text-3xl' css={{ color: 'white' }}>£ {currencyFormatter.format(ele.total)}</Text>
+                                                            <Text className='text-3xl font-bold md:text-3xl' css={{ color: 'white' }}>£ {currencyFormatter.format(ele.total)}</Text>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -15,15 +15,12 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 function CreateBooking() {
     const { user, isLoading } = useUser();
-
     const [step, setStep] = useState(1);
-
     const router = useRouter();
-
 
     return (
         <div className="w-11/12 md:w-9/12 lg:w-6/12 m-auto">
-            <div className='h-auto my-4'>
+            <div className='h-auto my-4 relative'>
                 <div className='py-4'>
                     <div className='py-3 text-2xl '>
                         <FontAwesomeIcon onClick={() => router.back()} icon={faArrowLeft} className="text-black text-4xl cursor-pointer" />

@@ -5,7 +5,7 @@ export default function Presentation({ nextStep, step }) {
 
     return (
         <div className="flex justify-center items-center mt-4 relative">
-            <div className={`w-full`}>
+            <div className={`w-full `}>
                 <div className={`${MyStyles.container__form} my-2`}>
                     <div className="">
                         <Text size={30} h2>Welcome to our booking system</Text>
