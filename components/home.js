@@ -20,15 +20,12 @@ import Loading from './loading';
 import { format } from 'date-fns';
 import Link from 'next/link';
 
+import { currencyFormatter } from '../utils/currencyFormatter';
+
 export default function Home() {
     const { user, isLoading } = useUser();
     const [fetchingData, setFetchingData] = useState(false);
     const [bookingsByUser, setBookingsByUser] = useState([])
-
-    const currencyFormatter = new Intl.NumberFormat("uk-UK", {
-        style: "currency",
-        currency: "GBP",
-    });
 
     useEffect(() => {
         setFetchingData(true);
@@ -171,7 +168,7 @@ export default function Home() {
                                                             <span className={`inline-flex items-center justify-center px-2 py-1 mr-1 mt-3 text-xs font-bold leading-none text-black ${ele.status === 'approved' ? 'bg-green-600' : ele.status === 'pending' ? 'bg-amber-500' : 'bg-red-600'} rounded-full`}>{ele.status.toUpperCase()}</span>
                                                         </div>
                                                         <div className='absolute bottom-6 right-5'>
-                                                            <Text className='text-3xl font-bold md:text-3xl' css={{ color: 'white' }}>£ {currencyFormatter.format(ele.total)}</Text>
+                                                            <Text className='text-3xl font-bold md:text-3xl' css={{ color: 'white' }}>{currencyFormatter(ele.total)}</Text>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -185,11 +182,6 @@ export default function Home() {
                 ) : (
                     <>
                         LOADING
-                    </>
-                )}
-                {bookingsByUser.length === 0 && (
-                    <>
-                        THERES NO DATA YET
                     </>
                 )}
             </div>

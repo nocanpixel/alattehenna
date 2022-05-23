@@ -1,23 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-.logo__title{
+.logo__title {
     font-family: 'Pacifico', cursive;
 }
 
-.logo__title__navbar{
+.logo__title__navbar {
     font-family: 'Pacifico', cursive;
     color: rgb(17, 17, 17);
 }
 
-.instagram__logo{
-    background:linear-gradient(45deg, #657cee, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+.instagram__logo {
+    background: linear-gradient(45deg, #657cee, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
 }
 
-.settings{
+.settings {
     background-color: rgb(17, 17, 17);
 }
 
-.card__book{
+.card__book {
     background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #88a5ea, #76afef, #65b8f1, #4ac4f2, #37ceed, #3ad8e4, #51e0d7);
     min-height: 300px;
 }
@@ -30,12 +30,28 @@
     padding: 2%;
 }
 
-.container__form{
+.container__form {
     min-height: 60vw;
 }
 
-@media only screen and (min-width: 768px){
-    .container__form{
+.all {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                        supported by Chrome, Edge, Opera and Firefox */
+}
+
+@media only screen and (min-width: 768px) {
+    .container__form {
         min-height: 300px;
     }
 }

@@ -1,11 +1,12 @@
-import { Text, Modal, useModal } from "@nextui-org/react";
+import { Text, Modal } from "@nextui-org/react";
 
 import { BridalPackage, HandsPackage, LegsPackage, BodyPackage, Events } from "./Packages";
+import MyStyles from '../../styles/MyStyles.module.css'
 
-export default function ModalBooking({ setVisible, bindings, modalData }) {
+export default function ModalBooking({ setBookingData,setVisible, bindings, modalData }) {
 
   const packages = ['Bridal package', 'Hands package', 'Legs package', 'Body package', 'Events'];
-  const justifyContent = 'flex justify-center py-5'
+  const justifyContent = `${MyStyles.all} md:m-auto md:w-6/12 py-4`
   return (
     <Modal
       scroll
@@ -22,15 +23,15 @@ export default function ModalBooking({ setVisible, bindings, modalData }) {
       </Modal.Header>
       <Modal.Body>
         {modalData.name === packages[0] ? (
-          <BridalPackage justifyContent={justifyContent} />
+          <BridalPackage setBookingData={setBookingData} setVisible={setVisible} justifyContent={justifyContent} />
         ) : modalData.name === packages[1] ? (
-          <HandsPackage justifyContent={justifyContent} />
+          <HandsPackage setVisible={setVisible} justifyContent={justifyContent} />
         ) : modalData.name === packages[2] ? (
-          <LegsPackage justifyContent={justifyContent} />
+          <LegsPackage setVisible={setVisible} justifyContent={justifyContent} />
         ) : modalData.name === packages[3] ? (
-          <BodyPackage justifyContent={justifyContent} />
+          <BodyPackage setVisible={setVisible} justifyContent={justifyContent} />
         ) : (
-          <Events justifyContent={justifyContent} />
+          <Events setVisible={setVisible} justifyContent={justifyContent} />
         )}
       </Modal.Body>
     </Modal>

@@ -6,6 +6,7 @@ import Loading from "../components/loading";
 import Login from "../components/login";
 import Home from "../components/home";
 import Navbar from '../components/navbar';
+import MyStyles from '../styles/MyStyles.module.css'
 
 export default function App() {
     const { user, isLoading } = useUser();

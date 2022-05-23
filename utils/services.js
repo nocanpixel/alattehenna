@@ -29,71 +29,50 @@ export const bridalPackage = [
     }
 ]
 
-
-export const handsPackage = [
-/*     {
-        name:'Palms',
-        desc:'For both palms til wrists',
-        price:10
-    },
-    {
-        name:'Wrists'
-    },
-    {
-        name:'Mid arm'
-    },
-    {
-        name:'Elbow'
-    },
-    {
-        name:'Shoulder'
-    },
-    {
-        name:'Full arm'
-    } */
-    {
-        package: 'Bridal package',
-        name: 'Hands package 1',
-        desc: 'Both hands up to elbow (one side)',
-        price: 25
-    },
+export const wristPackage = [
     {
         package:'Hands package',
-        name: 'Hands package 2',
-        desc: 'Both hands midway (one side)',
-        price: 20
+        name: 'Hands package 3',
+        desc: 'Both hands up to wrist (one side)',
+        img: '/images/wrist.png',
+        price: 15
     },
     {
         package:'Hands package',
         name: 'Hands package 3',
         desc: 'Both hands up to wrist (one side)',
+        img: '/images/wrist.png',
         price: 15
     },
+]
+
+
+export const handsPackage = [
     {
-        package:'Hands package',
-        name: 'Hands package 4',
-        desc: 'Both hands up to elbow (both sides, not including palms)',
-        price: 30
-    },
-    {
-        package:'Hands package',
-        name: 'Hands package 5',
-        desc: 'Both hands up to elbow (both sides, including palms)',
-        price: 35
-    },
-    {
-        package:'Hands package',
-        name: 'Hands package 6',
-        desc: 'Both hands midway (both sides, not including palms)',
-        price: 25
-    },
-    {
-        package:'Hands package',
-        name: 'Hands package 7',
-        desc: 'Both hands midway (both sides, including palms)',
-        price: 30
+        armParts : [
+            {
+                name:'Elbow',
+                image: '/images/elbow.png'
+            },
+            {
+                name: 'Mid',
+                image: '/images/mid.png'
+            },
+            {
+                name: 'Wrist',
+                image: '/images/wrist.png'
+            },
+            {
+                name: 'Fingers',
+                image: '/images/fingers.png'
+            }
+        ],
+        sides: ['One side','Both sides'],
+        palms: 'Include palms',
+        colors: ['Black henna', 'Red henna', 'Mix henna']
     }
 ]
+
 
 export const legsPackage = [
     {

@@ -20,7 +20,7 @@ export default function Navbar({ user, isLoading }) {
                 alattehenna
             </div>
             <div className="absolute text-2xl bottom-2 pt-10 right-6 md:right-auto rounded-full flex items-center">
-                <Popover placement="top-right" triggerType='tree' isKeyboardDismissDisabled={false} shouldFlip={true} offset={30}>
+                <Popover disableAnimation={true} placement="top-right" triggerType='tree' isKeyboardDismissDisabled={false} shouldFlip={true} offset={30}>
                     {/* Button menu trigger */}
                     <Popover.Trigger>
                         <Button
